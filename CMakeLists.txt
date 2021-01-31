@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 set(MORE_CONCEPTS_VERSION 0.1.0)
 project(MoreConcepts VERSION "${MORE_CONCEPTS_VERSION}")
 
+enable_testing()
 add_subdirectory(tests)
 
 add_library(more_concepts INTERFACE)

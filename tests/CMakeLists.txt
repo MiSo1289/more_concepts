@@ -1,4 +1,8 @@
 add_executable(more_concepts_tests)
+add_test(
+  NAME more_concepts_tests
+  COMMAND more_concepts_tests
+)
 target_include_directories(
   more_concepts_tests
 

@@ -19,15 +19,15 @@ namespace
     
     using mock_output_iterator = more_concepts::mock_mutable_iterator<
         test_value_type, std::output_iterator_tag>;
-    using mock_writable_input_iterator = more_concepts::mock_mutable_iterator<
+    using mock_mutable_input_iterator = more_concepts::mock_mutable_iterator<
         test_value_type, std::input_iterator_tag>;
-    using mock_writable_forward_iterator = more_concepts::mock_mutable_iterator<
+    using mock_mutable_forward_iterator = more_concepts::mock_mutable_iterator<
         test_value_type, std::forward_iterator_tag>;
-    using mock_writable_bidirectional_iterator = more_concepts::mock_mutable_iterator<
+    using mock_mutable_bidirectional_iterator = more_concepts::mock_mutable_iterator<
         test_value_type, std::bidirectional_iterator_tag>;
-    using mock_writable_random_access_iterator = more_concepts::mock_mutable_iterator<
+    using mock_mutable_random_access_iterator = more_concepts::mock_mutable_iterator<
         test_value_type, std::random_access_iterator_tag>;
-    using mock_writable_contiguous_iterator = more_concepts::mock_mutable_iterator<
+    using mock_mutable_contiguous_iterator = more_concepts::mock_mutable_iterator<
         test_value_type, std::contiguous_iterator_tag>;
 }
 
@@ -36,3 +36,16 @@ static_assert(std::forward_iterator<mock_forward_iterator>);
 static_assert(std::bidirectional_iterator<mock_bidirectional_iterator>);
 static_assert(std::random_access_iterator<mock_random_access_iterator>);
 static_assert(std::contiguous_iterator<mock_contiguous_iterator>);
+
+static_assert(std::output_iterator<mock_output_iterator, test_value_type>);
+static_assert(std::output_iterator<mock_mutable_input_iterator, test_value_type>);
+static_assert(std::output_iterator<mock_mutable_forward_iterator, test_value_type>);
+static_assert(std::output_iterator<mock_mutable_bidirectional_iterator, test_value_type>);
+static_assert(std::output_iterator<mock_mutable_random_access_iterator, test_value_type>);
+static_assert(std::output_iterator<mock_mutable_contiguous_iterator, test_value_type>);
+
+static_assert(std::input_iterator<mock_mutable_input_iterator>);
+static_assert(std::forward_iterator<mock_mutable_forward_iterator>);
+static_assert(std::bidirectional_iterator<mock_mutable_bidirectional_iterator>);
+static_assert(std::random_access_iterator<mock_mutable_random_access_iterator>);
+static_assert(std::contiguous_iterator<mock_mutable_contiguous_iterator>);

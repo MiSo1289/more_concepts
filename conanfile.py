@@ -6,7 +6,7 @@ from conans import CMake, ConanFile, tools
 def get_version():
     try:
         content = tools.load("CMakeLists.txt")
-        version = re.search(b"set\\(MORE_CONCEPTS_VERSION (.*)\\)", content).group(1)
+        version = re.search("set\\(MORE_CONCEPTS_VERSION (.*)\\)", content).group(1)
         return version.strip()
     except OSError:
         return None
@@ -20,6 +20,7 @@ class MoreConcepts(ConanFile):
     homepage = "https://github.com/MiSo1289/more_concepts"
     url = "https://github.com/MiSo1289/more_concepts"
     license = "MIT"
+    settings = ("os", "compiler", "arch", "build_type")
     exports_sources = (
         "include/*",
         "tests/*",
@@ -28,8 +29,15 @@ class MoreConcepts(ConanFile):
 
     def build(self):
         cmake = CMake(self)
+
         cmake.configure()
-        cmake.test(target="more_concepts_tests")
+        cmake.build()
+
+        if tools.get_env("CONAN_RUN_TESTS", True):
+            cmake.test()
 
     def package(self):
         self.copy("*.hpp", dst="include", src="include")
+
+    def package_id(self):
+        self.info.header_only()
