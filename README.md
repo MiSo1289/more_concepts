@@ -57,7 +57,9 @@ For each sequence container concept, an `_of<C, ValueType>` version is also prov
 - `multiple_map_container<C>` - A map container with non-unique keys. Satisfied by `multimap` and `unordered_multimap`.
 
 For each associative container / map concept, `ordered_` and `unordered_` versions are available (e.g. `ordered_unique_map_container`).
+
 For each generic (non-map) associative container concept, an `_of<C, ValueType, KeyType=ValueType>` version is available.
+
 For each map container concept, an `_of<C, KeyType, MappedType>` version is available.
 
 ### General concepts
@@ -82,6 +84,7 @@ Function concepts:
 #include <more_concepts/mock_iterator.hpp>
 ```
 The `mock_iterator<T, IteratorCategory, RWCategory>` class template can be used to write concepts that require some operation to accept any iterator of some category. 
+
 Template parameters:
 - `T` - iterator value type.
 - `IteratorCategory` - can be one of the standard iterator category tags (e.g. `std::input_iterator_tag`). The mock iterator provides the minimal needed interface to satisfy the requested category. E.g. for the input and output iterator categories, a proxy reference type is used instead of a raw reference.
