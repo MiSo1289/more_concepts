@@ -22,7 +22,10 @@ jobs:
       uses: lukka/get-cmake@latest
       
     - name: Get GCC 10
-      run: sudo apt update && sudo apt install gcc-10 g++-10
+      run: >
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa &&
+        sudo apt update && 
+        sudo apt install gcc-10 g++-10
       shell: bash
 
     - name: Create Build Environment
