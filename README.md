@@ -79,6 +79,8 @@ Function concepts:
 - `callable_as<Fn, Ret(Args...)...>` - Function types that can be called with the function-call operator using one or more function signatures. The return type of each signature must be matched exactly.
 - `hash_function` - corresponds to the `Hash` standard named requirement. Used to define the `unordered_associative_container` concept. 
 
+## Utilities
+
 ### Mock iterator
 ```c++ 
 #include <more_concepts/mock_iterator.hpp>
