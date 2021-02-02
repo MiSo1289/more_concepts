@@ -4,6 +4,12 @@
 ```
 This library aims to provide general purpose concepts that are not available in the C++20 concepts library, most notably container concepts. It also provides utilities for writing your own concepts (a `mock_iterator` that can mock any iterator category - see bellow). 
 
+### Notes
+
+At the moment, only GCC 10.2 is confirmed to be able to compile all of this library.
+
+A conan package is available in [my bintray repository](https://bintray.com/miso1289/public-conan).
+
 ## Container concepts
 
 The container concepts are intended to serve as an abstraction for the STL container interfaces, allowing writing constrained generic code that can use any container of some category, both standard and third-party (as long as it provides an STL compliant interface).
