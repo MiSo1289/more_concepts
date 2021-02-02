@@ -29,9 +29,9 @@ jobs:
     - name: Configure CMake
       shell: bash
       run: >
-        cmake 
-          -S "${GITHUB_WORKSPACE}"
-          -B "${BUILD_DIR}"
+        cmake \
+          -S "${GITHUB_WORKSPACE}" \
+          -B "${BUILD_DIR}" \
           -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
       env:
         CC: ${{matrix.cc}}
