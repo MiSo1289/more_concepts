@@ -15,10 +15,6 @@ jobs:
        include:
          - cc: gcc-10
            cxx: g++-10
-         - cc: clang-10
-           cxx: clang++-10
-         - cc: clang-9
-           cxx: clang++-9
     
     steps:
     - uses: actions/checkout@v2
