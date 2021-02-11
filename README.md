@@ -8,15 +8,13 @@ This library aims to provide general purpose concepts that are not available in 
 
 At the moment, only GCC 10.2 is confirmed to be able to compile all of this library.
 
-A conan package is available in [my bintray repository](https://bintray.com/miso1289/public-conan).
+### Installing with Conan
 
-### Conan Installation Instructions
+If you use Conan to manage dependencies, you can get this library from [my artifactory](https://miso1289.jfrog.io/ui/packages/conan:%2F%2Fmore_concepts?name=more&type=packages).
 
-Here are the general instructions to add this repository to your Conan setup. You may have to adjust the specifics for later versions. Please check the version available on [my bintray repository](https://bintray.com/miso1289/public-conan).
-
-1. Add my bintray repository to your local Conan install: `conan remote add miso1289 https://api.bintray.com/conan/miso1289/public-conan`
-2. Add the version to your `conanfile.txt`, e.g. `more_concepts/0.1.0@miso1289/stable`
-3. Install the dependency while building: `conan install -b missing $CONAN_DIR`, where `CONAN_DIR` is your top-level directory (containing your `conanfile.txt`).
+1. Add my artifactory repository to your local Conan install: `conan remote add miso1289 https://miso1289.jfrog.io/artifactory/api/conan/miso1289`
+2. Add the reference to your `conanfile.txt` (or `conanfile.py`), e.g. `more_concepts/0.1.0@miso1289/stable`
+3. Install the dependency before building: `conan install -b missing $CONAN_DIR`, where `CONAN_DIR` is your top-level directory (containing your conanfile).
 
 ## Container concepts
 
