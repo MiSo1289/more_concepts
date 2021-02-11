@@ -15,8 +15,8 @@ A conan package is available in [my bintray repository](https://bintray.com/miso
 Here are the general instructions to add this repository to your Conan setup. You may have to adjust the specifics for later versions. Please check the version available on [my bintray repository](https://bintray.com/miso1289/public-conan).
 
 1. Add my bintray repository to your local Conan install: `conan remote add miso1289 https://api.bintray.com/conan/miso1289/public-conan`
-* Add the version to your `conanfile.txt`, e.g. `more_concepts/0.1.0@miso1289/stable`
-* Install the dependency while building: `conan install -b missing $CONAN_DIR`, where `CONAN_DIR` is your top-level directory (containing your `conanfile.txt`).
+2. Add the version to your `conanfile.txt`, e.g. `more_concepts/0.1.0@miso1289/stable`
+3. Install the dependency while building: `conan install -b missing $CONAN_DIR`, where `CONAN_DIR` is your top-level directory (containing your `conanfile.txt`).
 
 ## Container concepts
 
