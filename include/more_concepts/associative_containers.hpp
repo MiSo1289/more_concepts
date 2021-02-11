@@ -607,7 +607,7 @@ namespace more_concepts
                                         cont.insert_or_assign(hint, std::move(key), obj)
                                         } -> std::same_as<typename C::iterator>;
 
-                                        // Emplacement (std::move(key) copy, mapped object copy constructor)
+                                        // Emplacement (key move, mapped object copy constructor)
                                         {
                                         cont.emplace(std::move(key), obj)
                                         } -> std::same_as<std::pair<typename C::iterator, bool>>;
@@ -637,7 +637,7 @@ namespace more_concepts
                                         cont.insert_or_assign(hint, std::move(key), std::move(obj))
                                         } -> std::same_as<typename C::iterator>;
 
-                                        // Emplacement (std::move(key) copy, mapped object move constructor)
+                                        // Emplacement (key move, mapped object move constructor)
                                         {
                                         cont.emplace(std::move(key), std::move(obj))
                                         } -> std::same_as<std::pair<typename C::iterator, bool>>;
