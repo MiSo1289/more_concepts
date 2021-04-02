@@ -1,4 +1,5 @@
 # More concepts
+[![Build](https://github.com/MiSo1289/more_concepts/workflows/Build/badge.svg)](https://github.com/MiSo1289/more_concepts/actions?query=workflow%3ABuild)
 ```c++ 
 #include <more_concepts/more_concepts.hpp>
 ```
