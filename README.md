@@ -10,11 +10,11 @@ At the moment, only GCC 10.2 is confirmed to be able to compile all of this libr
 
 ### Installing with Conan
 
-If you use Conan to manage dependencies, you can get this library from [my artifactory](https://miso1289.jfrog.io/ui/packages/conan:%2F%2Fmore_concepts?name=more&type=packages).
+If you use Conan to manage dependencies:
 
-1. Add my artifactory repository to your local Conan install: `conan remote add miso1289 https://miso1289.jfrog.io/artifactory/api/conan/miso1289`
-2. Add the reference to your `conanfile.txt` (or `conanfile.py`), e.g. `more_concepts/0.1.0@miso1289/stable`
-3. Install the dependency before building: `conan install -b missing $CONAN_DIR`, where `CONAN_DIR` is your top-level directory (containing your conanfile).
+1. Clone this repository and create the package in your cache: `conan create <path-to-repo>`
+2. Add the reference to your `conanfile.txt` (or `conanfile.py`), e.g. `more_concepts/0.1.0`
+3. Install the dependency before building: `conan install <project-dir> -b missing -if <build-dir>`, where `<project-dir>` is your top-level directory (containing your conanfile).
 
 ## Container concepts
 
