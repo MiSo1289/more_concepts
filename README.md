@@ -14,7 +14,7 @@ At the moment, only GCC 10.2 is confirmed to be able to compile all of this libr
 If you use Conan to manage dependencies:
 
 1. Clone this repository and create the package in your cache: `conan create <path-to-repo>`
-2. Add the reference to your `conanfile.txt` (or `conanfile.py`), e.g. `more_concepts/0.1.0`
+2. Add the reference to your `conanfile.txt` (or `conanfile.py`), e.g. `more_concepts/0.1.1`
 3. Install the dependency before building: `conan install <project-dir> -b missing -if <build-dir>`, where `<project-dir>` is your top-level directory (containing your conanfile).
 
 ## Container concepts

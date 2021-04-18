@@ -193,11 +193,11 @@ namespace more_concepts
                    requires {{ cont.emplace_front() } -> std::same_as<typename C::reference>; };
 
           // Front emplacement (copy constructor)
-          requires not std::default_initializable<typename C::value_type> or
+          requires not std::copyable<typename C::value_type> or
                    requires {{ cont.emplace_front(value) } -> std::same_as<typename C::reference>; };
 
           // Front emplacement (move constructor)
-          requires not std::default_initializable<typename C::value_type> or
+          requires not std::movable<typename C::value_type> or
                    requires {{ cont.emplace_front(std::move(tmp_value)) } -> std::same_as<typename C::reference>; };
       };
 
@@ -236,11 +236,11 @@ namespace more_concepts
                    requires {{ cont.emplace_back() } -> std::same_as<typename C::reference>; };
 
           // Back emplacement (copy constructor)
-          requires not std::default_initializable<typename C::value_type> or
+          requires not std::copyable<typename C::value_type> or
                    requires {{ cont.emplace_back(value) } -> std::same_as<typename C::reference>; };
 
           // Back emplacement (move constructor)
-          requires not std::default_initializable<typename C::value_type> or
+          requires not std::movable<typename C::value_type> or
                    requires {{ cont.emplace_back(std::move(tmp_value)) } -> std::same_as<typename C::reference>; };
       };
 
