@@ -31,13 +31,12 @@ class MoreConcepts(ConanFile):
         cmake = CMake(self)
 
         do_test = tools.get_env("CONAN_RUN_TESTS", True)
-        if(do_test):
-            cmake.definitions["BUILD_TESTING"] = True
+        cmake.definitions["BUILD_TESTING"] = do_test
 
         cmake.configure()
         cmake.build()
 
-        if(do_test):
+        if do_test:
             cmake.test()
 
     def package(self):
