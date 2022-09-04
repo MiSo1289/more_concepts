@@ -28,7 +28,8 @@ jobs:
         cmake \
           -S "${GITHUB_WORKSPACE}" \
           -B "${BUILD_DIR}" \
-          -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+          -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
+          -DBUILD_TESTING=ON
       env:
         CC: ${{matrix.cc}}
         CXX: ${{matrix.cxx}}

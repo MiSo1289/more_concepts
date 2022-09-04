@@ -2,8 +2,11 @@ cmake_minimum_required(VERSION 3.17)
 set(MORE_CONCEPTS_VERSION 0.1.1)
 project(MoreConcepts VERSION "${MORE_CONCEPTS_VERSION}")
 
-enable_testing()
-add_subdirectory(tests)
+option(BUILD_TESTING "Build the testing tree." OFF)
+if(BUILD_TESTING)
+	enable_testing()
+	add_subdirectory(tests)
+endif()
 
 add_library(more_concepts INTERFACE)
 add_library(more_concepts::more_concepts ALIAS more_concepts)
