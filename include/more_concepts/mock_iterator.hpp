@@ -33,9 +33,9 @@ namespace more_concepts
 
         auto operator++(int) -> mock_iterator;
 
-        auto operator*() const -> mock_iterator::deref_result;
+        auto operator*() const -> typename mock_iterator::deref_result;
 
-        auto operator->() const -> mock_iterator::arrow_result
+        auto operator->() const -> typename mock_iterator::arrow_result
         requires std::derived_from<IteratorCategory, std::input_iterator_tag>;
 
         auto operator==(mock_iterator const&) const -> bool
@@ -53,7 +53,7 @@ namespace more_concepts
         auto operator-=(difference_type) -> mock_iterator&
         requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
 
-        auto operator[](difference_type) const -> mock_iterator::deref_result
+        auto operator[](difference_type) const -> typename mock_iterator::deref_result
         requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
 
         auto operator+(difference_type) const -> mock_iterator
