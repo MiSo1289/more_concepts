@@ -48,7 +48,7 @@ namespace more_concepts
     requires(Signatures& ... signatures)
     {
         ([] <typename Ret, typename... Args>(auto(&)(Args...) -> Ret)
-        requires std::is_invocable_r_v<Ret, Fn, Args>
+        requires std::is_invocable_r_v<Ret, Fn, Args...>
         {}(signatures), ...);
     };
 
