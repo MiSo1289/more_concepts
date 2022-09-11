@@ -34,7 +34,7 @@ install(EXPORT MoreConceptsTargets
 include(CMakePackageConfigHelpers)
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
 	"${CMAKE_CURRENT_BINARY_DIR}/MoreConceptsConfig.cmake"
-	INSTALL_DESTINATION lib/cmake
+	INSTALL_DESTINATION .
 )
 write_basic_package_version_file(
 	"${CMAKE_CURRENT_BINARY_DIR}/MoreConceptsConfigVersion.cmake"
@@ -44,5 +44,5 @@ write_basic_package_version_file(
 install(FILES
 	"${CMAKE_CURRENT_BINARY_DIR}/MoreConceptsConfig.cmake"
 	"${CMAKE_CURRENT_BINARY_DIR}/MoreConceptsConfigVersion.cmake"
-	DESTINATION lib/cmake
+	DESTINATION .
 )
