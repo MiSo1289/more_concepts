@@ -13,7 +13,7 @@ add_library(more_concepts::more_concepts ALIAS more_concepts)
 target_compile_features(more_concepts INTERFACE cxx_std_20)
 set_property(TARGET more_concepts PROPERTY VERSION ${MORE_CONCEPTS_VERSION})
 target_include_directories(more_concepts INTERFACE
-	$<BUILD_INTERFACE:include>
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	$<INSTALL_INTERFACE:include>
 )
 
