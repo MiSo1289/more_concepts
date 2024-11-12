@@ -29,57 +29,93 @@ namespace more_concepts
         using iterator_category = IteratorCategory;
         using difference_type = std::ptrdiff_t;
 
-        auto operator++() -> mock_iterator&;
+        auto operator++() -> mock_iterator& {
+            return {};
+        }
 
-        auto operator++(int) -> mock_iterator;
+        auto operator++(int) -> mock_iterator {
+            return {};
+        }
 
-        auto operator*() const -> typename mock_iterator::deref_result;
+        auto operator*() const -> typename mock_iterator::deref_result {
+            return {};
+        }
 
         auto operator->() const -> typename mock_iterator::arrow_result
-        requires std::derived_from<IteratorCategory, std::input_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::input_iterator_tag> {
+            return {};
+        }
 
         auto operator==(mock_iterator const&) const -> bool
-        requires std::derived_from<IteratorCategory, std::input_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::input_iterator_tag> {
+            return {};
+        }
 
         auto operator--() -> mock_iterator&
-        requires std::derived_from<IteratorCategory, std::bidirectional_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::bidirectional_iterator_tag> {
+            return {};
+        }
 
         auto operator--(int) -> mock_iterator
-        requires std::derived_from<IteratorCategory, std::bidirectional_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::bidirectional_iterator_tag> {
+            return {};
+        }
 
         auto operator+=(difference_type) -> mock_iterator&
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator-=(difference_type) -> mock_iterator&
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator[](difference_type) const -> typename mock_iterator::deref_result
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator+(difference_type) const -> mock_iterator
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         template <std::convertible_to<difference_type> D>
         friend auto operator+(D const&, mock_iterator const&) -> mock_iterator
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator-(difference_type const&) const -> mock_iterator
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator-(mock_iterator const&) const -> difference_type
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator<(mock_iterator const&) const -> bool
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator>(mock_iterator const&) const -> bool
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator<=(mock_iterator const&) const -> bool
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
 
         auto operator>=(mock_iterator const&) const -> bool
-        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag>;
+        requires std::derived_from<IteratorCategory, std::random_access_iterator_tag> {
+            return {};
+        }
     };
 
     template <typename T, typename IteratorCategory>
