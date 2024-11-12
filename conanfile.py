@@ -1,20 +1,11 @@
 import re
 
-from conans import CMake, ConanFile, tools
-
-
-def get_version():
-    try:
-        content = tools.load("CMakeLists.txt")
-        version = re.search("set\\(MORE_CONCEPTS_VERSION (.*)\\)", content).group(1)
-        return version.strip()
-    except OSError:
-        return None
-
+from conan import ConanFile
+from conan.tools.cmake import CMakeToolchain, CMake
+from conan.tools.files import load, copy
 
 class MoreConcepts(ConanFile):
     name = "more_concepts"
-    version = get_version()
     revision_mode = "scm"
     description = "C++20 concepts library, providing container concepts and more."
     homepage = "https://github.com/MiSo1289/more_concepts"
@@ -26,21 +17,22 @@ class MoreConcepts(ConanFile):
         "tests/*",
         "CMakeLists.txt",
     )
-
-    def build(self):
-        cmake = CMake(self)
-
-        do_test = tools.get_env("CONAN_RUN_TESTS", True)
-        cmake.definitions["BUILD_TESTING"] = do_test
-
-        cmake.configure()
-        cmake.build()
-
-        if do_test:
-            cmake.test()
+    no_copy_source = True
 
     def package(self):
-        self.copy("*.hpp", dst="include", src="include")
+        copy(self, "*.hpp", self.source_folder, self.package_folder)
 
     def package_id(self):
-        self.info.header_only()
+        self.info.clear()
+
+    def package_info(self):
+         self.cpp_info.bindirs = []
+         self.cpp_info.libdirs = []
+
+    def set_version(self):
+        try:
+            content = load(self, "CMakeLists.txt")
+            version = re.search("set\\(MORE_CONCEPTS_VERSION (.*)\\)", content).group(1)
+            self.version = version.strip()
+        except OSError:
+            return None
